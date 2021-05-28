@@ -14,8 +14,6 @@
         android:background="#5559b4">
 
 
-
-
         <TextView
             android:id="@+id/tv_drawer_name"
             android:layout_width="wrap_content"
@@ -30,50 +28,50 @@
 
         <!--
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#80ffffff"
-            android:layout_marginTop="270dp">
-        </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="HOME"
-            android:textColor="#ffffff"
-            android:id="@+id/tv_drawer_start"
-            android:layout_marginTop="298dp"
-            android:layout_marginLeft="44dp"
-            android:onClick="OnClick">
-        </TextView>
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="1dp"
+             android:background="#80ffffff"
+             android:layout_marginTop="270dp">
+         </LinearLayout>
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="HOME"
+             android:textColor="#ffffff"
+             android:id="@+id/tv_drawer_start"
+             android:layout_marginTop="298dp"
+             android:layout_marginLeft="44dp"
+             android:onClick="OnClick">
+         </TextView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#80ffffff"
-            android:layout_marginTop="340dp">
-        </LinearLayout>
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="1dp"
+             android:background="#80ffffff"
+             android:layout_marginTop="340dp">
+         </LinearLayout>
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="작성하기"
-            android:textColor="#ffffff"
-            android:id="@+id/tV_drawer_setting"
-            android:layout_marginTop="368dp"
-            android:layout_marginLeft="44dp"
-            android:onClick="OnClick">
-        </TextView>
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="작성하기"
+             android:textColor="#ffffff"
+             android:id="@+id/tV_drawer_setting"
+             android:layout_marginTop="368dp"
+             android:layout_marginLeft="44dp">
+         </TextView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#80ffffff"
-            android:layout_marginTop="410dp">
-        </LinearLayout>
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="1dp"
+             android:background="#80ffffff"
+             android:layout_mar="#80ffffff"
+             android:layout_marginTop="410dp">
+         </LinearLayout>
 
-        -->
+         -->
 
 
 

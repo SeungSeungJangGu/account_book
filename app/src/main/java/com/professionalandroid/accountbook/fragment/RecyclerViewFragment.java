@@ -1,4 +1,4 @@
-package com.example.accountbook.fragment;
+package com.professionalandroid.accountbook.fragment;
 
 import android.os.Bundle;
 
@@ -8,17 +8,15 @@ import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.accountbook.DataBase.DTO;
-import com.example.accountbook.R;
-import com.example.accountbook.TestRecyclerViewAdapter;
+import com.professionalandroid.accountbook.DataBase.DTO;
+import com.professionalandroid.accountbook.R;
+import com.professionalandroid.accountbook.TestRecyclerViewAdapter;
 import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDecorator;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -60,14 +58,7 @@ public class RecyclerViewFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
 
-
-
-        // materialviewpager 셋업
-        if (GRID_LAYOUT) {
-            mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-        } else {
-            mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        }
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setHasFixedSize(true);
 
         //Use this now

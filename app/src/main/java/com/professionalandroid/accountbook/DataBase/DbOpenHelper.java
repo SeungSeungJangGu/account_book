@@ -1,4 +1,4 @@
-package com.example.accountbook.DataBase;
+package com.professionalandroid.accountbook.DataBase;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -71,7 +71,7 @@ public class DbOpenHelper {
         return mDB.insert(DataBases.CreateDB._TABLENAME0, null, values);
     }
  
-    // Select 쿼리 실해
+    // Select 쿼리 실행
     public Cursor selectColumns(){
         return mDB.query(DataBases.CreateDB._TABLENAME0, null, null, null, null, null, null);
     }

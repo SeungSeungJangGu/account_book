@@ -1,10 +1,9 @@
-package com.example.accountbook;
+package com.professionalandroid.accountbook;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
@@ -16,9 +15,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.accountbook.DataBase.DTO;
-import com.example.accountbook.DataBase.DbOpenHelper;
-import com.example.accountbook.fragment.RecyclerViewFragment;
+import com.professionalandroid.accountbook.DataBase.DTO;
+import com.professionalandroid.accountbook.DataBase.DbOpenHelper;
+import com.professionalandroid.accountbook.fragment.RecyclerViewFragment;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -27,7 +26,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -66,19 +64,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setTitle("");
-        ButterKnife.bind(this);     // butterknife 라이브러리를 이용하여 해당 context에 바인딩 선언
+        ButterKnife.bind(this);     // butterknife 라이브러리를 이용하여 해당 context에 바인딩
+
 
         // list 객체 생성
-        data_list = new ArrayList<DTO>();
-        day_list  = new ArrayList<DTO>();
-        week_list  = new ArrayList<DTO>();
+        data_list   = new ArrayList<DTO>();
+        day_list    = new ArrayList<DTO>();
+        week_list   = new ArrayList<DTO>();
         month_list  = new ArrayList<DTO>();
-        
+
         // DB Create & Search
         mDbOpenHelper = new DbOpenHelper(this);
         mDbOpenHelper.open();
         mDbOpenHelper.create();
-
 
         int total = 0;
 
@@ -105,8 +103,8 @@ public class MainActivity extends AppCompatActivity {
             int tmptotal = 0;
             tmptotal += Integer.parseInt(income);
             tmptotal -= Integer.parseInt(expend);
-            
-            
+
+
             // HOME 리스트 추가
             DTO dto = new DTO();
             dto.setId(id);
@@ -227,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        
+
         // 헤더 추가
         SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy-MM-dd");
         Date time = new Date();
@@ -253,7 +251,7 @@ public class MainActivity extends AppCompatActivity {
         header_dto.setExpends(String.valueOf(tmpExpends));
         header_dto.setTotal(tmpTotal);
         header_dto.setId(tmpId);
-        
+
         data_list.add(0,header_dto);
         day_list.add(0,header_dto);
         week_list.add(0,header_dto);
@@ -308,7 +306,11 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
+        // 어댑터란 = 뷰 와 연결된 리스트
         // 뷰페이저 각 요소별 플래그먼트 선언
+        // 플래그먼트 : Activity 안에 들어가는 하나의 화면,
+        // 뷰페이저 == 플래그먼트의 묶음
+
         mViewPager.getViewPager().setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
 
             @Override
@@ -336,6 +338,10 @@ public class MainActivity extends AppCompatActivity {
                 return 4;
             }
 
+
+            // Sequence  == 나열
+            // IntegerSequence   Int형 배열을 객체로 구성한것.
+            // CharSequence      Char형 배열을 객체로 구성한것.
             // 뷰페이저의 각 요소 이름
             @Override
             public CharSequence getPageTitle(int position) {
@@ -352,6 +358,8 @@ public class MainActivity extends AppCompatActivity {
                 return "";
             }
         });
+
+
         // 뷰페이저의 로드 이미지
         mViewPager.setMaterialViewPagerListener(new MaterialViewPager.Listener() {
             @Override
@@ -378,19 +386,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         mViewPager.getViewPager().setOffscreenPageLimit(mViewPager.getViewPager().getAdapter().getCount());
         mViewPager.getPagerTitleStrip().setViewPager(mViewPager.getViewPager());
-
-        final View logo = findViewById(R.id.logo_white);
-        if (logo != null) {
-            logo.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    mViewPager.notifyHeaderChanged();
-                    Toast.makeText(getApplicationContext(), "Yes, the title is clickable", Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
 
 
     }
@@ -435,9 +433,11 @@ public class MainActivity extends AppCompatActivity {
         int month = Integer.parseInt(dates[1]);
         int day = Integer.parseInt(dates[2]);
         calendar.set(year, month - 1, day);
+
         calendar1.set(year, month - 1, 1);
         return calendar.get(Calendar.WEEK_OF_YEAR) - calendar1.get(Calendar.WEEK_OF_YEAR);
     }
+
     // yyyy-mm-dd에서 달을 가져옴
     private int getMonthOfYear(String date) {
         String[] dates = date.split("-");

@@ -1,4 +1,4 @@
-package com.example.accountbook;
+package com.professionalandroid.accountbook;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,12 +7,10 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.accountbook.DataBase.DTO;
+import com.professionalandroid.accountbook.DataBase.DTO;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
@@ -24,19 +22,13 @@ public class TestRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     // butterknife 라이브러리를 이용하여
     // 위젯과 뷰를 바인딩
-    @BindView(R.id.tv_small_card_date)
     TextView tv_date;
-    @BindView(R.id.tv_small_card_no)
     TextView tv_no;
-    @BindView(R.id.tv_small_card_income)
     TextView tv_income;
-    @BindView(R.id.tv_small_card_expend)
     TextView tv_expend;
-    @BindView(R.id.tv_small_card_total)
     TextView tv_total;
-    @BindView(R.id.tv_small_card_contents)
     TextView tv_content;
-    
+
     static final int TYPE_HEADER = 0;
     static final int TYPE_CELL = 1;
 
@@ -115,28 +107,15 @@ public class TestRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
         System.out.println(position);
         switch (getItemViewType(position)) {
             case TYPE_HEADER:
-                if(contents.get(position).getIncome() != null && !contents.get(position).getIncome().equals("")){
-                    totoal += Integer.parseInt(contents.get(position).getIncome());
-                }
-
-                if(contents.get(position).getExpends() != null && !contents.get(position).getExpends().equals("")){
-                    totoal -= Integer.parseInt(contents.get(position).getExpends());
-                }
                 tv_content.setText(contents.get(position).getContent());
                 tv_date.setText(contents.get(position).getDate());
                 tv_no.setText(String.valueOf(contents.get(position).getId()));
                 tv_income.setText(contents.get(position).getIncome() + "원");
                 tv_expend.setText(contents.get(position).getExpends() + "원");
                 tv_total.setText(String.valueOf(contents.get(position).getTotal()));
+
                 break;
             case TYPE_CELL:
-                if(contents.get(position).getIncome() != null && !contents.get(position).getIncome().equals("")){
-                    totoal += Integer.parseInt(contents.get(position).getIncome());
-                }
-
-                if(contents.get(position).getExpends() != null && !contents.get(position).getExpends().equals("")){
-                    totoal -= Integer.parseInt(contents.get(position).getExpends());
-                }
                 tv_content.setText(contents.get(position).getContent());
                 tv_date.setText(contents.get(position).getDate());
                 tv_no.setText(String.valueOf(contents.get(position).getId()));

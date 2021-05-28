@@ -1,4 +1,4 @@
-package com.example.accountbook.DataBase;
+package com.professionalandroid.accountbook.DataBase;
 /*
 *   Record에 관련된 정보를 가지고 있는 객체
 *   RecyclerView의 Item 객체로 활용하기위해 부가적인
@@ -9,8 +9,13 @@ public class DTO {
     private String income   = "0";
     private String expends  = "0";
     private String date;
+
+
+
+
     private int total = 0;
     private int id = 0;
+
     private int week = -1;
     private int month = -1;
     private int year = -1;

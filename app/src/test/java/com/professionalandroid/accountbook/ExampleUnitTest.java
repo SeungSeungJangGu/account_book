@@ -1,4 +1,4 @@
-package com.example.accountbook;
+package com.professionalandroid.accountbook;
 
 import org.junit.Test;
 

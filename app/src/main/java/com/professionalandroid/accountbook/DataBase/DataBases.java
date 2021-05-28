@@ -1,4 +1,4 @@
-package com.example.accountbook.DataBase;
+package com.professionalandroid.accountbook.DataBase;
 
 import android.provider.BaseColumns;
 /*
