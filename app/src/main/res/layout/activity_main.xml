@@ -27,6 +27,7 @@
             app:viewpager_displayToolbarWhenSwipe="true"
             app:viewpager_transparentToolbar="false"
             app:viewpager_animatedHeaderImage="true"
+
             />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

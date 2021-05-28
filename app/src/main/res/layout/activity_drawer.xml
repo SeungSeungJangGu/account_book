@@ -62,7 +62,8 @@
             android:textColor="#ffffff"
             android:id="@+id/tV_drawer_setting"
             android:layout_marginTop="368dp"
-            android:layout_marginLeft="44dp">
+            android:layout_marginLeft="44dp"
+            android:onClick="OnClick">
         </TextView>
 
         <LinearLayout
