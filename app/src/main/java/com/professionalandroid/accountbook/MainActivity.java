@@ -2,17 +2,20 @@ package com.professionalandroid.accountbook;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.professionalandroid.accountbook.DataBase.DTO;
@@ -58,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.fab_add)
     FloatingActionButton btn_fab;
+
+    @BindView(R.id.tV_drawer_contact)
+    TextView tv_drawer_contact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -302,6 +308,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+
+        dialog.setTitle("Contact E-mail")
+                .setMessage("victory9c@gmail.com")
+                .setPositiveButton("닫기", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+
+        tv_drawer_contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                dialog.create().show();
+            }
+        });
+
+
+
         final Toolbar toolbar = mViewPager.getToolbar();
         setSupportActionBar(toolbar);
 
@@ -400,6 +427,7 @@ public class MainActivity extends AppCompatActivity {
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawer, 0, 0);
         mDrawer.setDrawerListener(mDrawerToggle);
+        ButterKnife.bind(mDrawer);
 
         final ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
